@@ -1181,8 +1181,31 @@ function walk(){
   v.addEventListener("click",()=>{ v.paused?v.play():v.pause(); });
 }
 
-carousels(); world(); japan(); tokyo(); reveal(); ambient(); momentClock(); metro(); walk();
+/* ===== analytics (GoatCounter): page views are automatic; these count a few moments ===== */
+function track(path,title){ try{ if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path,title,event:true}); }catch(e){} }
+function onceSeen(el,path,title,thr){
+  if(!el||!("IntersectionObserver" in window)) return;
+  const io=new IntersectionObserver(es=>{ if(es.some(e=>e.isIntersecting)){ track(path,title); io.disconnect(); } },{threshold:thr||0});
+  io.observe(el);
+}
+function tracking(){
+  const pv=document.getElementById("pvid");
+  if(pv){ let played=false;
+    pv.addEventListener("play",()=>{ if(!played){ played=true; track("proposal-video-play","Played the proposal video"); } });
+    pv.addEventListener("ended",()=>track("proposal-video-ended","Watched the proposal video to the end")); }
+  const ws=document.getElementById("walksnd");
+  if(ws) ws.addEventListener("click",()=>{ if(ws.getAttribute("aria-pressed")==="true") track("walk-sound-on","Turned on sound for the walk video"); });
+  const led=document.getElementById("led"); if(led) led.addEventListener("click",()=>track("line-map-open","Opened the line map"));
+  const rp=document.getElementById("replay"); if(rp) rp.addEventListener("click",()=>track("fly-again","Replayed the flights"));
+  const station=e=>{ const a=e.target.closest("a"); if(a) track("station-"+a.getAttribute("href").slice(1),"Line map station: "+a.getAttribute("href").slice(1)); };
+  ["line","sheetList"].forEach(id=>{ const el=document.getElementById(id); if(el) el.addEventListener("click",station); });
+  onceSeen(document.querySelector(".yesword"),"saw-yes","Scrolled to the YES",.6);
+  onceSeen(document.getElementById("roll"),"reached-end","Scrolled to the end");
+}
+
+carousels(); world(); japan(); tokyo(); reveal(); ambient(); momentClock(); metro(); walk(); tracking();
 </script>
 
+<script data-goatcounter="https://szhang48.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
