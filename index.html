@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sandy Zhang</title>
+<meta name="description" content="Sandy Zhang. Trips and things worth remembering.">
+<meta name="theme-color" content="#14111a">
+<meta property="og:title" content="Sandy Zhang">
+<meta property="og:description" content="Trips and things worth remembering.">
+<meta property="og:image" content="https://szhang48.github.io/japan/img/share.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314111a'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='%23ffd84a'%3ESZ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Share+Tech+Mono&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --ground:#14111a; --ink:#f6f1ea; --soft:#b5aac0; --line:#2e2838; --sticker:#ffd84a; --stamp:#ff8a1f;
+  --body:"Albert Sans",system-ui,sans-serif;
+  --display:"Bricolage Grotesque","Albert Sans",system-ui,sans-serif;
+  --data:"Share Tech Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;overflow-x:clip}
+body{background:var(--ground);color:var(--ink);font:16px/1.55 var(--body);-webkit-text-size-adjust:100%}
+.wrap{max-width:960px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));padding-block:calc(56px + env(safe-area-inset-top,0px)) calc(56px + env(safe-area-inset-bottom,0px))}
+.eyebrow{font:400 13px/1.3 var(--data);letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+h1{font:800 clamp(52px,11vw,112px)/.9 var(--display);letter-spacing:-.04em;margin:12px 0 40px}
+h2{font:400 13px/1.3 var(--data);letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0 0 14px;padding-top:22px;border-top:1px solid var(--line)}
+.trip{display:grid;grid-template-columns:minmax(0,1fr);border-radius:10px;overflow:hidden;background:#1c1724;color:inherit;text-decoration:none;border:1px solid var(--line);transition:transform .25s,border-color .25s}
+.trip:hover{transform:translateY(-3px);border-color:var(--sticker)}
+.trip:focus-visible{outline:2px solid var(--sticker);outline-offset:3px}
+.trip figure{margin:0;position:relative;aspect-ratio:1200/630;overflow:hidden}
+.trip img{width:100%;height:100%;object-fit:cover;display:block}
+.trip .date{position:absolute;right:14px;bottom:10px;font:400 18px/1 var(--data);color:var(--stamp);text-shadow:0 0 6px rgba(255,138,31,.85)}
+.trip .txt{padding:18px 20px 22px;display:grid;gap:6px}
+.trip b{font:800 clamp(26px,4vw,36px)/1.05 var(--display);letter-spacing:-.02em}
+.trip b span{background:var(--sticker);color:var(--ground);padding:0 .14em;border-radius:.12em;display:inline-block;transform:rotate(-2deg)}
+.trip p{margin:0;color:var(--soft)}
+.trip small{font:400 13px var(--data);color:var(--soft);letter-spacing:.06em}
+@media (prefers-reduced-motion:reduce){.trip{transition:none}.trip:hover{transform:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <span class="eyebrow">Hi, I'm</span>
+  <h1>Sandy Zhang</h1>
+
+  <h2>Trips</h2>
+  <a class="trip" href="japan/">
+    <figure><img src="japan/img/share.jpg" alt="Nhat on one knee in front of Michelle under the red torii at Mt. Fuji"><span class="date">'26 4 6</span></figure>
+    <div class="txt">
+      <small>Japan · April 3 – 11, 2026</small>
+      <b>She said <span>yes.</span></b>
+      <p>Nhat and Michelle's proposal at Mt. Fuji, and the trip around it: Tokyo, Fuji, Osaka and Kyoto with the crew.</p>
+    </div>
+  </a>
+</main>
+</body>
+</html>
